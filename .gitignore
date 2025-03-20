@@ -1,0 +1,15 @@
+# Standard python ignore
+.venv
+*.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Ignore data
+*json
+*csv
