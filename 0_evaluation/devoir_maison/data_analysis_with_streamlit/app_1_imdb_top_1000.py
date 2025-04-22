@@ -69,9 +69,9 @@ st.dataframe(df)
 # Display statistics
 st.write("## Statistiques")
 stats = get_statistics(df=df)
-st.metric("#### Nombre de films", stats['num_movies'])
-st.metric("#### Nombre de genres uniques", stats['num_unique_genres'])
-st.metric("#### Durée moyenne des films (en minutes)", stats['avg_runtime'])
+st.metric("#### Nombre de films", stats["num_movies"])
+st.metric("#### Nombre de genres uniques", stats["num_unique_genres"])
+st.metric("#### Durée moyenne des films (en minutes)", stats["avg_runtime"])
 
 # User interaction: Best movie by director
 st.write("## Quel est le film le mieux noté du réalisateur sélectionné ?")
