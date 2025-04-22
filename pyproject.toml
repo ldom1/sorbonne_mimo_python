@@ -16,4 +16,5 @@ dependencies = [
     "ruff>=0.11.4",
     "scikit-learn>=1.6.1",
     "skimpy>=0.0.18",
+    "streamlit>=1.44.1",
 ]
