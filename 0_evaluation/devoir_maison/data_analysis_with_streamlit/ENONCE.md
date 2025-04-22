@@ -5,33 +5,33 @@
 ### Presentation
 
 Ce devoir maison a pour ambition de mettre en pratique les connaissances et notions acquises autour de la programmation en Python et notamment:
-* La manipulation de fonctions
-* L'utilisation de package standard et notamment Pandas
-* La manipulation de données avec Pandas
-* La visualisation de données avec Matplotlib
+- La manipulation de fonctions
+- L'utilisation de packages standards et notamment Pandas
+- La manipulation de données avec Pandas
+- La visualisation de données avec Matplotlib
 
 L'un des challenges des Data Analyst/Scientist est de présenter proprement et intelligiblement les résultats de leurs analyses.. Dans ce devoir maison, nous allons nous intéresser à la bibliothèque Streamlit qui permet de créer des applications web interactives en Python.
 
 ### Objectif
 
 L'objectif de ce devoir maison est de créer une application ``Streamlit`` permettant de visualiser les données que vous aurez choisies. L'application doit permettre de:
-* Visualiser le jeu de données
-* Visualiser des indicateurs statistiques sur les données
-* Interagir avec l'utilisateur pour lui founir des informations sur les données
-* Visualiser un graphique sur les données
+- Visualiser le jeu de données
+- Visualiser des indicateurs statistiques sur les données
+- Interagir avec l'utilisateur pour lui fournir des informations sur les données
+- Visualiser un graphique sur les données
 
 ### Pré-requis
 
-* Python 3.10 ou supérieur
-* Streamlit
-* Pandas
-* Matplotlib
+- Python 3.10 ou supérieur
+- Streamlit
+- Pandas
+- Matplotlib
 
 Nous pourrons nous assurer que ces pré-requis sont bien respectés en classe.
 
 ## Données
 
-Vous pouvez choisir le jeu de données de votre choix ou choisir parmis les jeux de données suivants:
+Vous pouvez choisir le jeu de données de votre choix ou choisir parmi les jeux de données suivants:
 
 - [Average Daily Screen Time for Children](https://www.kaggle.com/datasets/ak0212/average-daily-screen-time-for-children)
   - *A dataset children's daily screen time habits*
@@ -48,25 +48,25 @@ Vous pouvez choisir le jeu de données de votre choix ou choisir parmis les jeux
 
 ## Organisation
 
-Le devoir maison est à réaliser seul. Vous pouvez vous aider entre vous mais il est important que chacun réalise son propre devoir maison.
+Le devoir maison est à **réaliser seul**. Vous pouvez vous aider entre vous mais il est important que chacun réalise son propre devoir maison.
 
-Le devoir maison est à rendre au plus tard pour le dernier cours Python, **le 16 juin 2025**. 
+Le devoir maison est à rendre **au plus tard le 16 juin 2025**, lors du dernier cours de Python.
 
 ### Notation
 
 Le devoir maison sera noté sur 20 points. La note se basera sur les critères suivants:
-* La présence des 4 composants suivants dans l'application
-  * Visualiser le jeu de données
-  * Visualiser des indicateurs statistiques sur les données
-  * Interagir avec l'utilisateur pour lui founir des informations sur les données
-  * Visualiser un graphique sur les données
-* Le code est propre, lisible et bien structuré (e.g. naming conventions, indentation, utilisation des fonctions avec respects des bonnes pratiques etc.)
-* La pertinence des choix de visualisation (e.g. le choix des graphiques, la pertinence des informations fournies etc.)
-* La qualité de l'application
+- La présence des 4 composants suivants dans l'application
+  - Visualiser le jeu de données
+  - Visualiser des indicateurs statistiques sur les données
+  - Interagir avec l'utilisateur pour lui fournir des informations sur les données
+  - Visualiser un graphique sur les données
+- Le code est propre, lisible et bien structuré (e.g. naming conventions, indentation, utilisation des fonctions avec respects des bonnes pratiques etc.)
+- La pertinence des choix de visualisation (e.g. le choix des graphiques, la pertinence des informations fournies etc.)
+- La qualité de l'application
 
 ### Le rendu
 
-Le rendu se fera sous la forme d'un PDF généré à partir de l'application Streamlit. Pour cela, il vous suffira de lancer l'application Streamlit et d'utiliser la fonction d'export PDF de votre navigateur.
+Le rendu se fera sous la forme d'un PDF généré à partir de l'application Streamlit. Il vous suffira de lancer l'application Streamlit et d'utiliser la fonction d'export PDF de votre navigateur.
 
 Vous devrez également rendre le code source de l'application Streamlit.
 
@@ -138,12 +138,12 @@ Ajouter 3 indicateurs statistiques sur les données. Pour cela, vous pouvez util
 
 ```python
 st.write("## Indicateurs statistiques")
-st.metric("Nombre de lignes", df.shape[0])
+st.metric("Moyenne de la colonne", df[col].mean())
 ```
 
-#### 4.3 Interagir avec l'utilisateur pour lui founir des informations sur les données
+#### 4.3 Interagir avec l'utilisateur pour lui fournir des informations sur les données
 
-Ajouter un composant permettant d'interagir avec l'utilisateur pour lui founir des informations sur les données. Pour cela, vous pouvez utiliser la fonction `st.selectbox()` de Streamlit. Par exemple, pour afficher le nom de la colonne sélectionnée par l'utilisateur, vous pouvez utiliser le code suivant:
+Ajouter un composant permettant d'interagir avec l'utilisateur pour lui fournir des informations sur les données. Pour cela, vous pouvez utiliser la fonction `st.selectbox()` de Streamlit. Par exemple, pour afficher le nom de la colonne sélectionnée par l'utilisateur, vous pouvez utiliser le code suivant:
 
 ```python
 st.write("## Interagir avec l'utilisateur")
