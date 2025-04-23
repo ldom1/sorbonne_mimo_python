@@ -31,7 +31,7 @@ Nous pourrons nous assurer que ces pré-requis sont bien respectés en classe.
 
 ## Données
 
-Vous pouvez choisir le jeu de données de votre choix ou choisir parmi les jeux de données suivants:
+Vous devez choisir un jeu de données parmi ceux proposés ci-dessous:
 
 - [Average Daily Screen Time for Children](https://www.kaggle.com/datasets/ak0212/average-daily-screen-time-for-children)
   - *A dataset children's daily screen time habits*
@@ -43,8 +43,6 @@ Vous pouvez choisir le jeu de données de votre choix ou choisir parmi les jeux 
   - *Over 10 years of hourly energy consumption data from PJM in Megawatts.*
 - [IMDB Movies Dataset](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows)
   - *Top 1000 Movies by IMDB Rating*
-- [Shifting Seas: Ocean Climate & Marine Life Dataset](https://www.kaggle.com/datasets/atharvasoundankar/shifting-seas-ocean-climate-and-marine-life-dataset)
-  - *A Multi-Year Global Dataset of Sea Surface Temperature, pH Levels, species observed ...*
 
 ## Organisation
 
