@@ -15,25 +15,41 @@ st.write(
     "Elle commence généralement par 0 et 1. Par exemple, les premiers termes de la suite sont : 0, 1, 1, 2, 3, 5, 8, 13, ..."
 )
 
-## Ecrire la fonction qui calcule la suite de Fibonacci
+
+## Ecrire la fonction qui calcule la suite de Fibonacci et
+# qui affiche le résultat de chaque itération
+# avec f"Le terme {i} de la suite de Fibonacci est : "
 def fibonacci(n: int) -> list:
-    """Calculer la suite de Fibonacci jusqu'à n termes.
+    """Calculer la suite de Fibonacci jusqu'à n termes et affiche le résultat
+    de chaque itération
     :param n: Le nombre de termes à calculer.
     :return: Une liste contenant les n premiers termes de la suite de Fibonacci.
     """
     # A implémenter
 
+
 # Demander à l'utilisateur combien de termes il souhaite afficher
-n_terms = st.number_input("Combien de termes de la suite de Fibonacci souhaitez-vous afficher ?", min_value=1, value=5)
+n_terms = st.number_input(
+    "Combien de termes de la suite de Fibonacci souhaitez-vous afficher ?",
+    min_value=1,
+    value=5,
+)
 
 # Ajouter un bouton "calculer" pour exécuter la fonction
 if st.button("Calculer"):
     fib_sequence = fibonacci(n=n_terms)
     st.write(f"La suite de Fibonacci jusqu'à {n_terms} termes est : {fib_sequence}")
-    
+
 
 # Ajouter un slider pour choisir le nombre de termes
-n_terms_slider = st.slider("Choisissez le nombre de termes de la suite de Fibonacci :", min_value=1, max_value=20, value=5)
+n_terms_slider = st.slider(
+    "Choisissez le nombre de termes de la suite de Fibonacci :",
+    min_value=1,
+    max_value=20,
+    value=5,
+)
 if st.button("Calculer avec le slider"):
     fib_sequence_slider = fibonacci(n=n_terms_slider)
-    st.write(f"**La suite de Fibonacci jusqu'à {n_terms_slider} termes est : {fib_sequence_slider}**")
+    st.write(
+        f"**La suite de Fibonacci jusqu'à {n_terms_slider} termes est : {fib_sequence_slider}**"
+    )
