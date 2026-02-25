@@ -60,6 +60,7 @@ if st.button("Calculer avec le slider"):
         f"**La suite de Fibonacci jusqu'à {n_terms_slider} termes est : {fib_sequence_slider}**"
     )
 
+
 def compute_phi(seq: list) -> list:
     """
     Calculate the ratio (phi) between consecutive terms in a Fibonacci sequence. Phi is the golden ratio,
@@ -69,15 +70,20 @@ def compute_phi(seq: list) -> list:
     :return: A list of ratios (phi) between consecutive terms.
     """
     if len(seq) < 2:
-        st.warning("La suite doit contenir au moins deux termes pour calculer les rapports.")
+        st.warning(
+            "La suite doit contenir au moins deux termes pour calculer les rapports."
+        )
         return []
 
     phi_ratios = []
     for i in range(2, len(seq)):
         phi = seq[i] / seq[i - 1]
-        st.write(f"Le rapport entre le terme {i} ({seq[i]}) et le terme {i-1} ({seq[i-1]}) est : {phi}")
+        st.write(
+            f"Le rapport entre le terme {i} ({seq[i]}) et le terme {i - 1} ({seq[i - 1]}) est : {phi}"
+        )
         phi_ratios.append(phi)
     return phi_ratios
+
 
 # Demander à l'utilisateur combien de termes il souhaite afficher
 n_terms_phi = st.number_input(

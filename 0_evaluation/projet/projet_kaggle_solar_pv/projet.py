@@ -9,9 +9,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
+
 # Fonction pour charger les données
 def load_data(file_path):
     return pd.read_csv(file_path)
+
 
 # Fonction pour prétraiter les données
 def preprocess_data(generation_data, weather_data):
@@ -67,6 +69,7 @@ def preprocess_data(generation_data, weather_data):
     df = df.dropna(how="any")
     return df
 
+
 # Fonction pour créer des caractéristiques
 def create_features(df):
     df["date_time"] = pd.to_datetime(df["date_time"])
@@ -75,6 +78,7 @@ def create_features(df):
     df["day_of_week"] = df["date_time"].dt.dayofweek
     df["is_day"] = (df["date_time"].dt.hour >= 6) & (df["date_time"].dt.hour < 18)
     return df
+
 
 # Fonction pour sélectionner les caractéristiques importantes
 def select_important_features(df, target_pred):
@@ -90,16 +94,19 @@ def select_important_features(df, target_pred):
     importances = model.feature_importances_
     feature_names = X.columns
     indices = np.argsort(importances)[::-1]
-    feature_selected = [
-        feature_names[i] for i in indices if importances[i] > 10**-4
-    ]
+    feature_selected = [feature_names[i] for i in indices if importances[i] > 10**-4]
 
     return feature_selected, X[feature_selected], y
 
+
 # Fonction pour entraîner le modèle
 def train_model(X, y):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=False)
-    model = RandomForestRegressor(n_estimators=100, random_state=42, min_samples_leaf=10, max_features=0.5)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42, shuffle=False
+    )
+    model = RandomForestRegressor(
+        n_estimators=100, random_state=42, min_samples_leaf=10, max_features=0.5
+    )
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
 
@@ -108,6 +115,7 @@ def train_model(X, y):
     rmse = mean_squared_error(y_test, y_pred)
 
     return model, y_test, y_pred, r2_score, mae, rmse
+
 
 # Interface Streamlit
 st.title("Prévision de la production d'énergie solaire")
@@ -121,15 +129,23 @@ group = st.selectbox("Sélectionner le groupe", [1, 2, 3])
 if group:
     base_path = "0_evaluation/projet/projet_kaggle_solar_pv"
 
-    generation_data = load_data(file_path=f"{base_path}/data/plant_generation_data_groupe_{group}.csv")
-    weather_data = load_data(file_path=f"{base_path}/data/plant_weather_data_groupe_{group}.csv")
-    weather_forecast_data = load_data(file_path=f"{base_path}/data/plant_weather_forecast_groupe_{group}.csv")
+    generation_data = load_data(
+        file_path=f"{base_path}/data/plant_generation_data_groupe_{group}.csv"
+    )
+    weather_data = load_data(
+        file_path=f"{base_path}/data/plant_weather_data_groupe_{group}.csv"
+    )
+    weather_forecast_data = load_data(
+        file_path=f"{base_path}/data/plant_weather_forecast_groupe_{group}.csv"
+    )
     target_data = load_data(file_path=f"{base_path}/data/target_groupe_{group}.csv")
 
     df = preprocess_data(generation_data, weather_data)
     df = create_features(df)
 
-    target_pred = st.selectbox("Sélectionner la cible à prédire", ["dc_power", "ac_power"])
+    target_pred = st.selectbox(
+        "Sélectionner la cible à prédire", ["dc_power", "ac_power"]
+    )
 
     feature_selected, X, y = select_important_features(df, target_pred)
     model, y_test, y_pred, r2_score, mae, rmse = train_model(X, y)
@@ -141,25 +157,29 @@ if group:
     # Affichage des graphiques
     st.subheader("Prédictions vs Valeurs réelles")
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=np.arange(len(y_test)),
-        y=y_test,
-        mode='lines',
-        name='Valeurs réelles',
-        line=dict(color='blue')
-    ))
-    fig.add_trace(go.Scatter(
-        x=np.arange(len(y_test)),
-        y=y_pred,
-        mode='lines',
-        name='Prédictions',
-        line=dict(color='red')
-    ))
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(len(y_test)),
+            y=y_test,
+            mode="lines",
+            name="Valeurs réelles",
+            line=dict(color="blue"),
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(len(y_test)),
+            y=y_pred,
+            mode="lines",
+            name="Prédictions",
+            line=dict(color="red"),
+        )
+    )
     fig.update_layout(
         title="Prédictions vs Valeurs réelles",
         xaxis_title="Index",
         yaxis_title="Valeurs",
-        legend_title="Légende"
+        legend_title="Légende",
     )
     st.plotly_chart(fig)
 
