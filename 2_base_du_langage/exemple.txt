@@ -1,0 +1,3 @@
+Bonjour, ceci est un exemple de fichier texte.
+Il contient plusieurs lignes de texte.
+C'est un exemple simple.
